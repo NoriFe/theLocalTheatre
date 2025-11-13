@@ -7,6 +7,9 @@
 </head>
 <body>
     <header>
+         <div class="logo">            
+            <img src="assets/logo.png" alt="the local theatre logo">
+        </div>
         <h1>the local theatre</h1>
         <nav>
             <ul>
