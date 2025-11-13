@@ -4,7 +4,7 @@ class db extends mysqli{
     protected static $instance;
 	const host ='compserver.uhi.ac.uk';
 	const user ='pe10008358';
-	const pass ='0c_cWnQ%VI-7';
+	const pass ='';
 	const schema ='pe10008358';
 	const port =3306;
 	const sock =false;
