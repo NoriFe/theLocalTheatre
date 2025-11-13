@@ -2,4 +2,5 @@ vendor/
 *.log
 *.DS_Store
 node_modules/
-php/db.classes.php
+php/db.class.php
+php/
