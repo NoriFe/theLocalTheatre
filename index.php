@@ -6,9 +6,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <h1>the local theatre</h1>
-    </header>
+  <?php include 'templates/header.php'; ?>   
     <main>
         <section class="welcome">
             <h2>welcome to the local theatre</h2>
@@ -19,8 +17,6 @@
             </p>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2025 10008358</p>
-    </footer>
+    <?php include 'templates/footer.php'; ?>
 </body>
 </html>
