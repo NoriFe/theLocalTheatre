@@ -4,3 +4,4 @@ vendor/
 node_modules/
 php/db.class.php
 php/
+.env
