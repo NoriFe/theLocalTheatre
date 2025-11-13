@@ -1,30 +1,35 @@
- <?php
+php
+<?php
 date_default_timezone_set('Europe/London');
-class db extends mysqli{
-    protected static $instance;
-	const host ='compserver.uhi.ac.uk';
-	const user ='pe10008358';
-	const pass ='';
-	const schema ='pe10008358';
-	const port =3306;
-	const sock =false;
-    private function __construct() {
-        // turn off error reporting
+
+class db extends mysqli {
+    protected static $instance;    
+    private function __construct() {       
         mysqli_report(MYSQLI_REPORT_OFF);
+
+        // load credentials from environment variables
+        $host   = getenv('DB_HOST');
+        $user   = getenv('DB_USER');
+        $pass   = getenv('DB_PASS');
+        $schema = getenv('DB_NAME');
+        $port   = getenv('DB_PORT') ?: 3306;
+        $sock   = false;
+
         // connect to database
-        @parent::__construct(self::host,self::user,self::pass,self::schema,self::port,self::sock);
+        @parent::__construct($host, $user, $pass, $schema, $port, $sock);
 
         // check if a connection established
-        if( mysqli_connect_errno() ) {
-            throw new exception(mysqli_connect_error(), mysqli_connect_errno()); 
+        if (mysqli_connect_errno()) {
+            throw new Exception(mysqli_connect_error(), mysqli_connect_errno()); 
         }
     }
+
+    // return instance of db
     public static function getInstance() {
-        if( !self::$instance ) {
+        if (!self::$instance) {
             self::$instance = new self(); 
         }
         return self::$instance;
-    }	
+    }   
 }
 ?>
-
