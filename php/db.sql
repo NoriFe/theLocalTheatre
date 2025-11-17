@@ -2,6 +2,7 @@ create table users (
     id int(5) auto_increment primary key,
     username varchar(50) not null unique,
     email varchar(100) not null unique,
+    status enum('active','banned') default 'active',
     password_hash varchar(255) not null,
     `role` enum('member','admin') default 'member', -- restrict roles to member and admin
     created_at timestamp default current_timestamp
@@ -65,4 +66,3 @@ create table contact_messages (
     `message` text not null,
     created_at timestamp default current_timestamp
 );
---
